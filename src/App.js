@@ -1,14 +1,21 @@
 import React from 'react';
-import LocatairesList from './components/LocatairesList';
-import AddLocataire from './components/AddLocataire';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import AffichageLocataires from './pages/AffichageLocataires';
+import AjouterLocataire from './pages/AjouterLocataire';
 
-function App() {
+const App = () => {
     return (
-        <div>
-            <LocatairesList />
-            <AddLocataire />
-        </div>
+        <Router>
+            <div>
+                <Navbar />
+                <Routes>
+                    <Route path="/" element={<AffichageLocataires />} />
+                    <Route path="/ajouter-locataire" element={<AjouterLocataire />} />
+                </Routes>
+            </div>
+        </Router>
     );
-}
+};
 
 export default App;

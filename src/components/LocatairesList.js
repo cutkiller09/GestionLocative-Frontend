@@ -1,6 +1,7 @@
-// filepath: gestion-locative-frontend/src/components/LocatairesList.js
 import React, { useEffect, useState } from 'react';
 import { getLocataires } from '../api'; 
+import { Link } from 'react-router-dom';
+import '../styles/LocatairesList.css';
 
 const LocatairesList = () => {
     const [locataires, setLocataires] = useState([]);
@@ -14,8 +15,9 @@ const LocatairesList = () => {
     }, []);
 
     return (
-        <div>
+        <div className="locataires-list">
             <h1>Liste des Locataires</h1>
+            <Link to="/ajouter-locataire" className="add-locataire-button">Ajouter un Locataire</Link>
             <ul>
                 {locataires.map((locataire) => (
                     <li key={locataire._id}>
